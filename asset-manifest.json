@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/healtharchive/static/css/main.f8286464.css",
+    "main.js": "/healtharchive/static/js/main.d62f824f.js",
+    "static/js/453.ad6eb26e.chunk.js": "/healtharchive/static/js/453.ad6eb26e.chunk.js",
+    "index.html": "/healtharchive/index.html",
+    "main.f8286464.css.map": "/healtharchive/static/css/main.f8286464.css.map",
+    "main.d62f824f.js.map": "/healtharchive/static/js/main.d62f824f.js.map",
+    "453.ad6eb26e.chunk.js.map": "/healtharchive/static/js/453.ad6eb26e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f8286464.css",
+    "static/js/main.d62f824f.js"
+  ]
+}
