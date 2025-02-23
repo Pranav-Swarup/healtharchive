@@ -1,4 +1,4 @@
-import { Card, CardContent } from "./components/ui/card"; 
+import { Card, CardContent } from "../components/Card/card"; 
 
 const FamilyTracker = () => (
   <Card className="shadow-lg p-6 rounded-xl bg-white">
