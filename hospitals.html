@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nearby Hospitals</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #EDF2F7 0%, #E2E8F0 100%);
+            min-height: 100vh;
+            color: #1A365D;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: #4299E1;
+            border-radius: 2px;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #2B6CB0 0%, #4299E1 100%);
+            -webkit-text-fill-color: transparent;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #4A5568;
+        }
+
+        .search-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .search-box {
+            display: flex;
+            gap: 1rem;
+        }
+
+        input {
+            flex: 1;
+            padding: 1.2rem;
+            border: 2px solid #E2E8F0;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #4299E1;
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.2);
+        }
+
+        button {
+            padding: 1.2rem 2.5rem;
+            background: linear-gradient(135deg, #4299E1 0%, #2B6CB0 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(66, 153, 225, 0.3);
+        }
+
+        .hospital-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .hospital-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hospital-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #4299E1 0%, #2B6CB0 100%);
+        }
+
+        .hospital-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .hospital-name {
+            font-size: 1.5rem;
+            color: #2D3748;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .hospital-name::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: #4299E1;
+        }
+
+        .hospital-info {
+            color: #4A5568;
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .hospital-features {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .feature-tag {
+            background: rgba(66, 153, 225, 0.1);
+            color: #2B6CB0;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .distance {
+            margin-top: 1.5rem;
+            color: #4299E1;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .distance::before {
+            content: '📍';
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .hospital-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="header">
+            <h1>Find Nearby Hospitals</h1>
+            <p>Discover quality healthcare facilities in your neighborhood</p>
+        </div>
+        
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" placeholder="Enter your location to find nearby hospitals" id="location-input">
+                <button onclick="searchHospitals()">Search</button>
+            </div>
+        </div>
+
+        <div class="hospital-list">
+            <div class="hospital-card">
+                <h3 class="hospital-name">City General Hospital</h3>
+                <p class="hospital-info">
+                    24/7 Emergency Services<br>
+                    123 Healthcare Avenue<br>
+                    (555) 123-4567
+                </p>
+                <div class="hospital-features">
+                    <span class="feature-tag">Emergency Care</span>
+                    <span class="feature-tag">ICU</span>
+                    <span class="feature-tag">Parking</span>
+                </div>
+                <p class="distance">0.8 Kilometers away</p>
+            </div>
+
+            <div class="hospital-card">
+                <h3 class="hospital-name">Memorial Medical Center</h3>
+                <p class="hospital-info">
+                    Full Service Hospital<br>
+                    456 Medical Parkway<br>
+                    (555) 987-6543
+                </p>
+                <div class="hospital-features">
+                    <span class="feature-tag">Trauma Center</span>
+                    <span class="feature-tag">Pediatrics</span>
+                    <span class="feature-tag">Laboratory</span>
+                </div>
+                <p class="distance">1.2 Kilometers away</p>
+            </div>
+
+            <div class="hospital-card">
+                <h3 class="hospital-name">Community Health Center</h3>
+                <p class="hospital-info">
+                    Urgent Care Available<br>
+                    789 Wellness Boulevard<br>
+                    (555) 456-7890
+                </p>
+                <div class="hospital-features">
+                    <span class="feature-tag">Urgent Care</span>
+                    <span class="feature-tag">Family Medicine</span>
+                    <span class="feature-tag">Pharmacy</span>
+                </div>
+                <p class="distance">2.5 Kilometers away</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function searchHospitals() {
+            console.log('Searching for hospitals...');
+        }
+    </script>
+</body>
+</html>

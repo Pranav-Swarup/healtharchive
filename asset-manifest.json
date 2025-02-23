@@ -1,17 +1,24 @@
 {
   "files": {
-    "main.css": "/healtharchive/static/css/main.b207667a.css",
-    "main.js": "/healtharchive/static/js/main.1b22bc23.js",
+    "main.css": "/healtharchive/static/css/main.0434f7cc.css",
+    "main.js": "/healtharchive/static/js/main.04160e32.js",
     "static/js/453.c47792ae.chunk.js": "/healtharchive/static/js/453.c47792ae.chunk.js",
+    "static/media/vitamind3.png": "/healtharchive/static/media/vitamind3.50fed38af932c71a0023.png",
+    "static/media/allergy.png": "/healtharchive/static/media/allergy.9ef6cb0c3c4789040895.png",
     "static/media/testdata.png": "/healtharchive/static/media/testdata.43f16c649a2ee484ff44.png",
+    "static/media/omega3.png": "/healtharchive/static/media/omega3.dea11fc94aead49604d9.png",
+    "static/media/login_sideimg.png": "/healtharchive/static/media/login_sideimg.78f4ab6381e3588dd3fc.png",
+    "static/media/amoxicillin.png": "/healtharchive/static/media/amoxicillin.1c50447f62273521b2a1.png",
+    "static/media/ibuprofen.png": "/healtharchive/static/media/ibuprofen.9c578d98141a3124ddf1.png",
     "static/media/homelight.jpg": "/healtharchive/static/media/homelight.8ce074618ecce163277c.jpg",
+    "static/media/paracetamol.png": "/healtharchive/static/media/paracetamol.e191b52d5d48a209a0dd.png",
     "index.html": "/healtharchive/index.html",
-    "main.b207667a.css.map": "/healtharchive/static/css/main.b207667a.css.map",
-    "main.1b22bc23.js.map": "/healtharchive/static/js/main.1b22bc23.js.map",
+    "main.0434f7cc.css.map": "/healtharchive/static/css/main.0434f7cc.css.map",
+    "main.04160e32.js.map": "/healtharchive/static/js/main.04160e32.js.map",
     "453.c47792ae.chunk.js.map": "/healtharchive/static/js/453.c47792ae.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b207667a.css",
-    "static/js/main.1b22bc23.js"
+    "static/css/main.0434f7cc.css",
+    "static/js/main.04160e32.js"
   ]
 }
